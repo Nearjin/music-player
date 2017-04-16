@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- 响应式 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <script src="./js/jin.js"></script>
+        <link rel="stylesheet" href="./css/style.css">
+        <title>music play</title>
+    </head>
+    <body>
+        <audio id='id-audio-player' src="./mp3/1.mp3" data-all='' data-active='0'></audio >
+        <div class="music-border">
+            <!-- 主界面 -->
+            <div class="content">
+                <!-- 头部 -->
+                <header>
+                    <div id="id-div-name">李白</div>
+                    <div id="id-div-author">李荣浩</div>
+                </header>
+                <!-- 主体 -->
+                <div class="music-content">
+                <div class="music-cover">
+                    <img src="./img/play_disc.png">
+                    <div class="circular">
+                        <img src="backgrounds/libai.jpg">
+                    </div>
+                </div>
+
+                </div>
+                <!-- 控制 -->
+                <footer class="music-loading">
+                    <div class="footer-timelist">
+                        <span class="timelist-start">00:00</span>
+                        <div class="timelist">
+                            <div class="timelist-slider"></div>
+                                <div class="timelist-ing"></div>
+                                <img id="id-img-process" src="img/process.png" alt="" />
+                        </div>
+                        <span class="timelist-end">00:00</span>
+                    </div>
+                    <div class="music-control">
+                        <img id='id-img-repeat' src="./img/repeat.png">
+                        <img id='id-img-last' class='next' src="./img/last.png" data-next='-1'>
+                        <div class="control-playOrPause">
+                            <img id='id-img-play' class='music-play' src="./img/play.png">
+                            <img id='id-img-pause' class='music-pause no-showed' src="./img/pause.png">
+                        </div>
+                            <img id='id-img-next' class='next'src="./img/next.png" data-next='1'>
+                            <img id='id-img-category' src="./img/category.png">
+                    </div>
+                </footer>
+                <!-- 背景 -->
+                <div class="background">
+                    <img src="backgrounds/libai.jpg">
+                </div>
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+    </body>
+</html>
