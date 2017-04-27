@@ -132,20 +132,38 @@ var bindEventNext = function() {
 }
 
 // 监听播放时间 改变滑条
-var bindEventSlide = function() {
+var bindEventTimeChange = function() {
     var audio = e('#id-audio-player')
     var slider = e('.timelist-slider')
+    var list = e('.timelist')
     var ing = e('.timelist-ing')
     var pro = e('#id-img-process')
-    var proWidth = parseInt(getComputedStyle(pro, null).width)
-    var sliderWidth = parseInt(getComputedStyle(slider, null).width)
+    var proWidth = pro.offsetWidth
+    var listWidth = list.offsetWidth
     bindEvent(audio, 'timeupdate', function(event) {
-        var value = audio.currentTime / audio.duration
-        var v = value * sliderWidth
+        var scale = audio.currentTime / audio.duration
+        var v = scale * listWidth
         var m = v - proWidth / 2
         ing.style.width = v + 'px'
         pro.style.left = m + 'px'
     })
+}
+
+// 时间条点击跳转
+var bindEventList = function() {
+    var list = e('.timelist')
+    var ing = e('.timelist-ing')
+    var pro = e('#id-img-process')
+    var audio = e('#id-audio-player')
+    var listWidth = parseInt(list.offsetWidth)
+    bindEvent(list, 'click', function(event) {
+        var disX = event.clientX - list.offsetLeft - 7
+        var scale = disX / listWidth
+        audio.currentTime = audio.duration * scale
+        pro.style.left = disX - pro.offsetWidth / 2 + 'px'
+        ing.style.width = disX + 'px'
+    })
+
 }
 
 // 循环播放
@@ -164,7 +182,8 @@ var bindEvents = function() {
     bindEventPlayOrPause()
     bindEventTime()
     bindEventNext()
-    bindEventSlide()
+    bindEventTimeChange()
+    bindEventList()
     bindEventRepeat()
 }
 

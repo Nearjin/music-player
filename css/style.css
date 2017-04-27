@@ -10,8 +10,8 @@ html {
     align-items: center;
     margin: 0;
 
-    top: 0px;
-    left: 0rem;
+    top: 0;
+    left: 0;
 
     width: 18rem;
     height: 30rem;
@@ -127,7 +127,6 @@ header {
 .timelist-slider {
     width: 100%;
     height: 2px;
-    position: absolute;
     background-color: #B1ADAC;
     cursor: pointer;
 }
